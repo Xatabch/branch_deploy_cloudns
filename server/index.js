@@ -6,9 +6,9 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
-app.post('/githook', (req, res) => {
+app.post('/payload', (req, res) => {
     console.log(req.body);
-    res.status(200).send();
+    res.status(200).send({});
 });
 
 app.listen(port, () => {
