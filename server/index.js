@@ -6,6 +6,8 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
+console.log('this is for test')
+
 app.post('/payload', (req, res) => {
     console.log(req.body);
     res.status(200).send({});
