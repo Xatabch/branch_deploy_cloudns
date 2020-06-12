@@ -6,6 +6,8 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
+console.log('test-frnt');
+
 app.post('/payload', (req, res) => {
     console.log(req.body.ref.match(/frnt-\d+/g)[0]);
     res.status(200).send({});
