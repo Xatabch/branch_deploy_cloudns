@@ -7,7 +7,7 @@ const port = 8000;
 app.use(bodyParser.json());
 
 app.post('/payload', (req, res) => {
-    console.log(req.body);
+    console.log(req.body.ref.match(/frnt-\d+/g)[0]);
     res.status(200).send({});
 });
 
