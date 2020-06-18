@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const shell = require('shelljs');
 
 const app = express();
 const port = 8000;
@@ -7,7 +8,18 @@ const port = 8000;
 app.use(bodyParser.json());
 
 app.post('/payload', (req, res) => {
-    console.log(req.body.ref.match(/frnt-\d+/g)[0]);
+    const body = req.body;
+    const branch = body.ref;
+
+    if (branch) {
+        const branchNames = branch.match(/frnt-\d+/g);
+        const branchName = branchNames && branchNames[0];
+
+        console.log(branchName);
+
+        shell.exec('./deploy.sh');
+
+    }
     res.status(200).send({});
 });
 
