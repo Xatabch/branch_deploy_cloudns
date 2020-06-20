@@ -12,6 +12,7 @@ before_install:
 before_deploy:
     - .travis/set-up-ssh
 deploy:
+  skip_cleanup: true
 - provider: script
   script: deploy.sh
   on:
