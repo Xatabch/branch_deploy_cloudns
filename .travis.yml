@@ -9,6 +9,8 @@ before_install:
 - docker build -t xatabch/branch_deploy .
 - docker run -d xatabch/branch_deploy
 - docker ps -a
+before_deploy:
+    - .travis/set-up-ssh
 deploy:
 - provider: script
   script: deploy.sh
