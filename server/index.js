@@ -7,7 +7,7 @@ const port = 8000;
 
 app.use(bodyParser.json());
 
-console.log('HI');
+console.log('HI lolkek');
 app.post('/payload', (req, res) => {
     const body = req.body;
     // const branch = body.ref;
