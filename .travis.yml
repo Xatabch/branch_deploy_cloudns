@@ -1,0 +1,20 @@
+language: node_js
+node_js: 
+    - 12
+
+services: 
+    - docker
+
+before_install:
+    - docker build -t xatabch/branch_deploy .
+    - docker run -d xatabch/branch_deploy
+    - docker ps -a
+
+deploy: 
+    - provider: script
+      script: deploy.sh
+      on:
+        branch: production
+
+script: 
+    npm test
